@@ -5,7 +5,7 @@ export const fetchAllBanks = async () => {
     const myCache = new CacheManager();
     const bankFromCache = myCache.getCache();
     // if found  in cache, returning data from cache ie no api call
-    if (bankFromCache) {
+    if (bankFromCache && bankFromCache > 0) {
       return bankFromCache;
     }
     let finalData = [];
