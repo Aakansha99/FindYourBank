@@ -9,7 +9,7 @@ import { fetchAllBanks } from "../Helper";
 import CacheManager from "../CacheManager";
 
 function Pagination({ title, search, city, category, pageLimit }) {
-  const myCache = new CacheManager();
+  
 
   let [data, setData] = useState([]);
   const [isLoading, setLoading] = useState(true);
@@ -26,7 +26,7 @@ function Pagination({ title, search, city, category, pageLimit }) {
       setLoading(false);
       setData((prevBank) => {
         const finalBanks = [...prevBank, ...allBanks];
-        myCache.setCache(finalBanks);
+        CacheManager.setCache(finalBanks);
         return finalBanks;
       });
     })();

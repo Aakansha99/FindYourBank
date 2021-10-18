@@ -8,17 +8,12 @@ import FormControl from "@mui/material/FormControl";
 import ListItemText from "@mui/material/ListItemText";
 import Select from "@mui/material/Select";
 import Checkbox from "@mui/material/Checkbox";
-import CacheManager from "../CacheManager";
 import "./Pagination.css";
-import {fetchAllBanks} from "../Helper";
-import LoaderIndicator from "./Loader";
 
 function Table() {
   const [search, setSearch] = useState("");
   const [city, setCity] = useState([]);
   const [category, setCategory] = useState([]);
-
-
 
   //Search by IFSC, Branch, Bank Name
   const Search = (e) => {
@@ -27,7 +22,7 @@ function Table() {
 
   const handleChange = (event) => {
     const {
-      target: {value},
+      target: { value },
     } = event;
     setCity(
       // On autofill we get a the stringified value.
@@ -127,14 +122,13 @@ function Table() {
         </div>
       </div>
 
-       <Pagination
-          title="Posts"
-          search={search}
-          city={city}
-          category={category}
-          pageLimit={5}
+      <Pagination
+        title="Posts"
+        search={search}
+        city={city}
+        category={category}
+        pageLimit={5}
       />
-
     </div>
   );
 }

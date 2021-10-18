@@ -1,4 +1,4 @@
-const CacheManager = require("./CacheManager");
+import CacheManager from "./CacheManager";
 
 exports.fetchAllBanks = async () => {
     try {

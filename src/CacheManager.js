@@ -45,4 +45,4 @@ class CacheManager {
   }
 }
 
-module.exports = CacheManager
+export default new CacheManager();
