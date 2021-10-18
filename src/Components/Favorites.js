@@ -8,7 +8,7 @@ function Favorites() {
   //taking out the favourite banks from localStorage on every fav state change
   useEffect(() => {
     let favourites = JSON.parse(localStorage.getItem("favourites"));
-    if ( favourites && favourites.length > 0) {
+    if (favourites && favourites.length > 0) {
       setfav(favourites);
     }
   }, [fav]);
@@ -29,7 +29,6 @@ function Favorites() {
     localStorage.setItem("bank", JSON.stringify(bank));
   };
 
-
   // handling redirect for single bank info page
   const handleRedirect = (link, bank) => {
     bankClickHandler(bank);
@@ -41,7 +40,7 @@ function Favorites() {
   return (
     <div>
       <h1 align="center">Your Favorite Banks</h1>
-      
+
       <Link to="/" style={{ textDecoration: "none" }}>
         <h3>{goBack}</h3>
       </Link>

@@ -2,12 +2,12 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./BankDetails.css";
 import { Link } from "react-router-dom";
-import {fetchAllBanks} from "../Helper";
+import { fetchAllBanks } from "../Helper";
 import LoaderIndicator from "./Loader";
 import Pagination from "./Pagination";
 
 function BankDetails() {
-  const [isLoading, setLoading] = useState(true)
+  const [isLoading, setLoading] = useState(true);
 
   // I have used useParams() hook to access the dynamic pieces of the URL
   let { ifsc } = useParams();
@@ -18,27 +18,27 @@ function BankDetails() {
   // we are fetching all banks, and finding our bank via searching in response array
   useEffect(() => {
     (async () => {
-      setLoading(true)
-      const allBanks = await fetchAllBanks()
-      setLoading(false)
+      setLoading(true);
+      const allBanks = await fetchAllBanks();
+      setLoading(false);
 
       if (allBanks) {
-        allBanks.forEach(bank=>{
+        allBanks.forEach((bank) => {
           if (bank.ifsc === ifsc) {
             setBankDetail(bank);
           }
-        })
-      }
-      else {
-        alert("No bank available !!")
+        });
+      } else {
+        alert("No bank available !!");
       }
     })();
-  }, [])
+  }, []);
 
   const goBack = "< Go back to search all banks";
 
-  return (
-      isLoading ? <LoaderIndicator/> :
+  return isLoading ? (
+    <LoaderIndicator />
+  ) : (
     <div>
       <h1 align="center">Single Bank Details</h1>
       <Link to="/" style={{ textDecoration: "none" }}>

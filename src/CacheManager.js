@@ -34,7 +34,10 @@ class CacheManager {
 
   // set cache on api call
   setCache(value) {
-    this.cache = {data: value, expiry: new Date(new Date().getTime() + this.cacheTimeout)};
+    this.cache = {
+      data: value,
+      expiry: new Date(new Date().getTime() + this.cacheTimeout),
+    };
     localStorage.setItem(this.cacheKey, JSON.stringify(this.cache));
   }
 

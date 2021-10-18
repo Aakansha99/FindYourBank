@@ -9,8 +9,6 @@ import { fetchAllBanks } from "../Helper";
 import CacheManager from "../CacheManager";
 
 function Pagination({ title, search, city, category, pageLimit }) {
-  
-
   let [data, setData] = useState([]);
   const [isLoading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
