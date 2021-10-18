@@ -2,8 +2,7 @@ import CacheManager from "./CacheManager";
 
 export const fetchAllBanks = async () => {
   try {
-    const myCache = new CacheManager();
-    const bankFromCache = myCache.getCache();
+    const bankFromCache = CacheManager.getCache();
     // if found  in cache, returning data from cache ie no api call
     if (bankFromCache && bankFromCache > 0) {
       return bankFromCache;
